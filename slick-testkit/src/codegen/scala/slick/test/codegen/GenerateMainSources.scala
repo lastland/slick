@@ -80,6 +80,9 @@ val  SimpleA = CustomTyping.SimpleA
       })
     },
     new UUIDConfig("CG10", StandardTestDBs.H2Mem, "H2Mem", Seq("/dbs/uuid-h2.sql")),
+    new Config("MySQL", StandardTestDBs.Postgres, "MySQL", Nil) {
+      override def testCode = "!@#$"
+    },
     new Config("Postgres1", StandardTestDBs.Postgres, "Postgres", Nil) {
       import tdb.profile.api._
       class A(tag: Tag) extends Table[(Int, Array[Byte], Blob)](tag, "a") {
